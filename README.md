@@ -6,19 +6,19 @@ MyNotes runs directly in the browser, stores notes locally, and can optionally b
 
 **No backend or database server is required.**
 
-## Live Demo
+## 🚀 Live Demo
 
-**[🚀 Open MyNotes](https://hasangurler.github.io/MyNotes/)**
+**[Open MyNotes](https://hasangurler.github.io/MyNotes/)**
 
 Try MyNotes directly in your browser. No installation or account is required.
 
-## Screenshot
+## 📸 Screenshot
 
 ![MyNotes Screenshot](screenshots/my-notes-screenshot.png)
 
 ---
 
-## Features
+## ✨ Features
 
 * Create, edit, and delete notes
 * Search notes by title or content
@@ -46,7 +46,7 @@ Try MyNotes directly in your browser. No installation or account is required.
 
 ---
 
-## Why MyNotes?
+## 💡 Why MyNotes?
 
 MyNotes is more than a simple notes application. It is also an example of how modern web technologies can be used to build a practical cross-platform application without introducing a backend or a complex development environment.
 
@@ -62,17 +62,17 @@ The project demonstrates how:
 
 The same application can therefore be used in two different ways:
 
-**Use it directly in a browser**
+### Use it directly in a browser
 
 No installation is required. Open the application and start using it.
 
-**Install it as a PWA**
+### Install it as a PWA
 
 On supported browsers and devices, MyNotes can be installed and launched as a standalone application.
 
 ---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 MyNotes deliberately uses a lightweight technology stack:
 
@@ -88,9 +88,11 @@ MyNotes deliberately uses a lightweight technology stack:
 
 There is no frontend framework, backend API, database server, package manager, or build pipeline required to run the application.
 
+Bootstrap and Bootstrap Icons are included locally in the repository, so the application does not depend on external CDN resources at runtime.
+
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 The application is primarily built around three source files:
 
@@ -100,7 +102,7 @@ css/style.css
 js/app.js
 ```
 
-Their responsibilities are intentionally separated:
+Their responsibilities are intentionally separated.
 
 ### `index.html`
 
@@ -158,7 +160,7 @@ It handles:
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 MyNotes/
@@ -191,11 +193,11 @@ MyNotes/
 
 The application itself is primarily implemented in `index.html`, `css/style.css`, and `js/app.js`.
 
-Bootstrap and Bootstrap Icons are included locally as vendor dependencies so the project does not depend on external CDN resources at runtime.
+Bootstrap and Bootstrap Icons are included locally as vendor dependencies.
 
 ---
 
-## Data Storage
+## 💾 Data Storage
 
 MyNotes does not require a remote database.
 
@@ -219,7 +221,7 @@ Because the data is stored locally, the notes are associated with the browser an
 
 ---
 
-## Backup and Restore
+## 💾 Backup and Restore
 
 To avoid relying entirely on browser-local storage, MyNotes provides a JSON backup and restore mechanism.
 
@@ -248,7 +250,7 @@ This provides a simple way to move notes between devices or preserve them indepe
 
 ---
 
-## Progressive Web App
+## 📱 Progressive Web App
 
 MyNotes includes the basic components required for a Progressive Web App:
 
@@ -265,7 +267,7 @@ The application does not require a native Android, iOS, Windows, or macOS instal
 
 ---
 
-## Running Locally
+## ▶️ Running Locally
 
 MyNotes does not require a build step.
 
@@ -277,9 +279,9 @@ The application can then be opened in a browser through a local HTTP address.
 
 ---
 
-## Browser APIs Used
+## 🌐 Browser APIs Used
 
-MyNotes demonstrates the use of several standard browser APIs:
+MyNotes demonstrates the use of several standard browser APIs.
 
 ### LocalStorage
 
@@ -307,7 +309,7 @@ Used extensively for rendering notes, handling events, updating the interface, a
 
 ---
 
-## Security Considerations
+## 🔒 Security Considerations
 
 MyNotes is a client-side application and does not send notes to a remote server.
 
@@ -315,11 +317,13 @@ User-entered content is escaped before being inserted into generated HTML to red
 
 For example, the application uses an `escapeHtml()` helper before inserting note data into the interface.
 
-Because notes are stored in browser-local storage, users should understand that clearing browser data can remove locally stored notes. The built-in JSON backup feature can be used to preserve or transfer data.
+Because notes are stored in browser-local storage, users should understand that clearing browser data can remove locally stored notes.
+
+The built-in JSON backup feature can be used to preserve or transfer data.
 
 ---
 
-## Design Philosophy
+## 🎯 Design Philosophy
 
 MyNotes follows a simple principle:
 
@@ -340,7 +344,7 @@ This makes the project suitable as both a practical application and a learning e
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
@@ -350,7 +354,7 @@ Before submitting a pull request, please make sure that the existing functionali
 
 ---
 
-## License
+## 📄 License
 
 MyNotes is released under the **MIT License**.
 
