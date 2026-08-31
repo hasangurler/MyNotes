@@ -1,10 +1,18 @@
 # MyNotes
 
-A lightweight, responsive, and installable notes application built with standard web technologies.
+A lightweight, offline-first notes application built with **HTML, CSS, and vanilla JavaScript**.
 
-MyNotes demonstrates how a modern web application can provide a **cross-platform application experience from a single codebase**, without requiring a native application framework or backend infrastructure.
+MyNotes runs directly in the browser, stores notes locally, and can optionally be installed as a **Progressive Web App (PWA)** on supported devices.
 
-The application can be used directly in a web browser, while supported browsers can also install it as a standalone application on desktop and mobile devices.
+**No backend or database server is required.**
+
+## Live Demo
+
+**[Open MyNotes](https://hasangurler.github.io/MyNotes/)**
+
+The application can be used directly from the browser without installation.
+
+---
 
 ## Features
 
@@ -12,332 +20,331 @@ The application can be used directly in a web browser, while supported browsers 
 * Search notes by title or content
 * Sort notes by:
 
-  * Last updated
-  * Creation date
-  * Title
+  * Recently updated
+  * Recently created
+  * Title A–Z
+  * Title Z–A
   * Manual order
-* Drag and drop manual note ordering
+* Drag and drop notes when manual sorting is enabled
 * Light and dark themes
-* Responsive design for desktop, tablet, and mobile devices
-* Character counters for note title and content
-* Form validation
-* Confirmation dialogs for important and destructive actions
+* Custom note colors
+* Character counters for titles and note content
+* Client-side form validation
+* Confirmation dialogs for destructive and data-changing actions
 * Toast notifications
-* Keyboard shortcuts
-* Local data storage using `localStorage`
-* Backup notes to a JSON file
-* Restore notes from a JSON backup
-* Installable as a Progressive Web App (PWA)
-* Offline-capable application architecture
-* No backend or database required
+* JSON backup and restore
+* Responsive interface for desktop and mobile devices
+* Local data persistence using `localStorage`
+* Offline-capable Progressive Web App
+* Optional PWA installation on supported browsers and devices
+* Native file sharing on supported mobile browsers
+* No backend required
+
+---
 
 ## Why MyNotes?
 
-MyNotes is more than a simple notes application.
+MyNotes is more than a simple notes application. It is also an example of how modern web technologies can be used to build a practical cross-platform application without introducing a backend or a complex development environment.
 
-The project is intended to demonstrate an important capability of modern web development:
+The project demonstrates how:
 
-> A web application can be built once and delivered across multiple platforms without maintaining separate native applications.
+* HTML can provide the application structure.
+* CSS can create a responsive and themeable user interface.
+* Vanilla JavaScript can handle application state and user interactions.
+* `localStorage` can provide persistent client-side storage.
+* Browser APIs can provide file handling and native sharing capabilities.
+* A Service Worker can provide offline functionality.
+* A Web App Manifest can make the application installable as a PWA.
 
-The same application can run in a browser and, when installed as a PWA, provide an application-like experience on supported desktop and mobile platforms.
+The same application can therefore be used in two different ways:
 
-This approach can significantly reduce development and maintenance costs for applications that do not require platform-specific native functionality.
+**Use it directly in a browser**
 
-## Technologies
+No installation is required. Open the application and start using it.
 
-MyNotes is built using standard web technologies and a small number of frontend libraries:
+**Install it as a PWA**
 
-* HTML5
-* CSS3
-* JavaScript (ES6+)
-* Bootstrap
-* Bootstrap Icons
-* Web Storage API
-* File API
-* Web Share API
-* Service Worker API
-* Progressive Web App (PWA) technologies
+On supported browsers and devices, MyNotes can be installed and launched as a standalone application.
 
-The application does not use a frontend framework such as React, Angular, or Vue.
+---
 
-There is also no server-side component or external database.
+## Technology Stack
 
-### Local Vendor Dependencies
+MyNotes deliberately uses a lightweight technology stack:
 
-The project includes the required Bootstrap and Bootstrap Icons files locally in the `vendor/` directory.
+* **HTML5**
+* **CSS3**
+* **Vanilla JavaScript**
+* **Bootstrap**
+* **Bootstrap Icons**
+* **Web APIs**
+* **LocalStorage**
+* **Service Worker**
+* **Web App Manifest**
 
-```text id="6d6n3h"
-vendor/
-├── bootstrap.bundle.min.js
-├── bootstrap.min.css
-├── bootstrap-icons.css
-└── fonts/
-    ├── bootstrap-icons.woff
-    └── bootstrap-icons.woff2
+There is no frontend framework, backend API, database server, package manager, or build pipeline required to run the application.
+
+---
+
+## Architecture
+
+The application is primarily built around three source files:
+
+```text
+index.html
+css/style.css
+js/app.js
 ```
 
-Keeping these dependencies locally allows the application to load its frontend resources without relying on an external CDN.
+Their responsibilities are intentionally separated:
 
-This is particularly useful for a PWA because the application is intended to remain functional even when network connectivity is unavailable.
+### `index.html`
+
+Defines the application structure and user interface.
+
+It contains:
+
+* Application header
+* Search and sorting controls
+* Notes container
+* Note editor modal
+* Confirmation modal
+* Toast container
+* PWA metadata
+* References to CSS and JavaScript resources
+
+### `css/style.css`
+
+Contains the application's custom styling.
+
+It is responsible for:
+
+* Application layout
+* Responsive behavior
+* Light and dark themes
+* Note card styling
+* Note colors
+* Modal customization
+* Drag-and-drop visual states
+* Mobile-specific adjustments
+* Toast styling
+
+Bootstrap provides the general UI framework, while `style.css` contains the application-specific design.
+
+### `js/app.js`
+
+Contains the application's behavior and business logic.
+
+It handles:
+
+* Application initialization
+* Application state
+* Note creation, editing, and deletion
+* LocalStorage persistence
+* Searching
+* Sorting
+* Drag-and-drop ordering
+* Theme management
+* Form validation
+* Character counters
+* Backup and restore
+* Browser API integration
+* Modal and toast interactions
+* Keyboard shortcuts
+
+---
 
 ## Project Structure
 
-```text id="q3m4n7"
+```text
 MyNotes/
 │
 ├── index.html
-├── style.css
-├── app.js
-│
 ├── manifest.json
 ├── service-worker.js
+├── favicon.png
 │
-├── icons/
-│   ├── icon-192.png
-│   └── icon-512.png
-│
-├── vendor/
-│   ├── bootstrap.bundle.min.js
+├── css/
 │   ├── bootstrap.min.css
 │   ├── bootstrap-icons.css
+│   ├── style.css
+│   │
 │   └── fonts/
 │       ├── bootstrap-icons.woff
 │       └── bootstrap-icons.woff2
+│
+├── js/
+│   ├── bootstrap.bundle.min.js
+│   └── app.js
 │
 ├── README.md
 ├── LICENSE
 └── .gitignore
 ```
 
-### `index.html`
+The application itself is primarily implemented in `index.html`, `css/style.css`, and `js/app.js`.
 
-Defines the application's user interface and document structure.
+Bootstrap and Bootstrap Icons are included locally as vendor dependencies so the project does not depend on external CDN resources at runtime.
 
-It contains the main application layout, toolbar, search and sorting controls, note cards container, note editing form, confirmation modal, and notification container.
-
-It also connects the application to the PWA manifest and required frontend resources.
-
-### `style.css`
-
-Contains the application's custom styling.
-
-Bootstrap provides the general UI framework, while `style.css` defines the MyNotes-specific visual layer, including:
-
-* Application themes
-* Note card appearance
-* Responsive behavior
-* Empty states
-* Modal styling
-* Note colors
-* Drag and drop states
-* Mobile-specific layout adjustments
-
-### `app.js`
-
-Contains the application's core functionality and business logic.
-
-The JavaScript layer manages:
-
-* Application state
-* Note creation, editing, and deletion
-* Local storage
-* Searching and sorting
-* Manual ordering
-* Drag and drop
-* Backup and restore
-* Theme selection
-* Form validation
-* Character counters
-* Confirmation dialogs
-* Toast notifications
-* Keyboard interaction
-
-### `manifest.json`
-
-Defines the Progressive Web App metadata, including:
-
-* Application name
-* Application icon
-* Start URL
-* Display mode
-* Orientation
-* Theme color
-* Background color
-
-This allows supported browsers to install MyNotes as an application.
-
-### `service-worker.js`
-
-Provides the service worker layer required for the application's offline-capable architecture.
-
-It allows application resources to be cached so that MyNotes can continue to work when network connectivity is unavailable.
+---
 
 ## Data Storage
 
-MyNotes does not require a backend or database.
+MyNotes does not require a remote database.
 
-Notes are stored locally in the browser using the Web Storage API (`localStorage`).
+Notes are stored in the browser using the **Web Storage API**, specifically `localStorage`.
 
-This design has several advantages:
+The application stores the notes under the following storage key:
 
-* No server is required
-* No account is required
-* No database configuration is required
-* Data remains available offline
-* The application can be hosted as a static website
-
-The trade-off is that data is associated with the browser/device where it was created.
-
-For this reason, MyNotes includes **JSON backup and restore functionality**.
-
-Users can export their notes to a JSON file and restore them later on another supported browser or device.
-
-## Cross-Platform Approach
-
-One of the primary goals of MyNotes is demonstrating how a single web application can target multiple environments.
-
-The same source code can be used through:
-
-```text id="7y8r2m"
-Web Browser
-     │
-     ├── Desktop
-     ├── Tablet
-     └── Mobile
-     
-        +
-        
-Progressive Web App
-        │
-        ├── Installable
-        ├── Standalone experience
-        └── Offline-capable
+```javascript
+const STORAGE_KEY = "notes_app_data";
 ```
 
-Instead of developing separate applications for different operating systems, the application uses standard web APIs and responsive design to adapt to different environments.
+The selected theme is stored separately:
 
-This does not mean that PWAs replace native applications in every scenario. Applications requiring extensive platform-specific capabilities may still benefit from native development or specialized cross-platform frameworks.
-
-For applications such as notes, task management, documentation, lightweight productivity tools, and many business applications, however, a PWA can be a practical alternative.
-
-## Running Locally
-
-MyNotes is a static web application.
-
-For basic development, the project can be served using any local HTTP server.
-
-For example, with Python installed:
-
-```bash id="7u0d2s"
-python -m http.server 8000
+```javascript
+const THEME_KEY = "notes_app_theme";
 ```
 
-Then open:
+This approach allows the application to preserve notes and preferences between browser sessions.
 
-```text id="2q8y4c"
-http://localhost:8000
-```
+Because the data is stored locally, the notes are associated with the browser and device where they were created.
 
-> A local HTTP server is recommended instead of opening `index.html` directly with `file://`, especially when testing service workers and PWA functionality.
-
-## Installing MyNotes
-
-When served from a supported secure context, compatible browsers can offer an option to install MyNotes.
-
-After installation, the application can appear as a standalone application rather than a normal browser tab.
-
-Installation support and available PWA features depend on the browser and operating system.
-
-## Offline Usage
-
-The application is designed to support offline usage through the combination of:
-
-* Local Storage
-* Service Worker
-* Cached application resources
-* Client-side application logic
-
-The application also keeps its Bootstrap and Bootstrap Icons dependencies locally rather than loading them from a CDN.
-
-Once the required resources have been cached, MyNotes can operate without an active internet connection.
+---
 
 ## Backup and Restore
 
-Because notes are stored locally, MyNotes provides a built-in backup mechanism.
+To avoid relying entirely on browser-local storage, MyNotes provides a JSON backup and restore mechanism.
 
-Users can:
+### Backup
 
-1. Export their notes as a JSON file.
-2. Keep the backup file independently.
-3. Restore their notes from the JSON file when needed.
+The application serializes the current notes array into JSON and creates a backup file.
 
-This also provides a simple mechanism for transferring notes between devices.
+On supported mobile browsers, MyNotes uses the **Web Share API** when possible.
 
-## Security and Privacy
+On browsers where file sharing is unavailable, the application falls back to a standard browser file download.
 
-MyNotes does not send note contents to a remote server.
+### Restore
 
-The application is designed around client-side storage, meaning that note data remains within the browser's local storage unless the user explicitly exports it.
+A previously created JSON backup can be selected from the device.
 
-However, local browser storage should not be considered a replacement for encrypted storage or a secure password manager.
+The application:
 
-Users should also keep independent backups of important information.
+1. Reads the selected file.
+2. Parses the JSON data.
+3. Validates the imported notes.
+4. Normalizes the data.
+5. Requests confirmation from the user.
+6. Replaces the current notes with the restored data.
 
-## Browser Compatibility
+This provides a simple way to move notes between devices or preserve them independently of browser storage.
 
-MyNotes uses modern web platform features such as:
+---
 
-* ES6+ JavaScript
-* Web Storage API
-* File API
-* Service Workers
-* Web Share API
-* CSS responsive features
+## Progressive Web App
 
-Browser support therefore depends on the implementation of these features.
+MyNotes includes the basic components required for a Progressive Web App:
 
-The Web Share API is used when available, with a traditional file-download mechanism provided as a fallback.
+```text
+manifest.json
+service-worker.js
+```
 
-## Development Goals
+The Web App Manifest provides installation metadata, while the Service Worker enables the application to operate offline after the required resources have been cached.
 
-The project was created with several goals in mind:
+On supported browsers and devices, users can install MyNotes and launch it as a standalone application.
 
-1. Build a useful application rather than a purely theoretical example.
-2. Demonstrate how standard web technologies can be combined into a complete application.
-3. Explore the Progressive Web App model.
-4. Provide a responsive experience across different screen sizes.
-5. Avoid unnecessary backend infrastructure.
-6. Keep the source code understandable and accessible to developers.
-7. Demonstrate how browser APIs can provide functionality traditionally associated with installed applications.
-8. Keep essential frontend dependencies locally available for offline use.
+The application does not require a native Android, iOS, Windows, or macOS installation package.
 
-## Future Improvements
+---
 
-Potential future improvements may include:
+## Running Locally
 
-* Additional note organization features
-* Tags and categories
-* More advanced search
-* Import/export format improvements
-* Additional PWA capabilities
-* Enhanced accessibility
-* Automated testing
-* Performance improvements
+MyNotes does not require a build step.
+
+However, because the application uses PWA functionality such as a Service Worker, it should be served through a local web server rather than opened directly with the `file://` protocol.
+
+For example, after cloning the repository, the project can be served using any simple static web server.
+
+The application can then be opened in a browser through a local HTTP address.
+
+---
+
+## Browser APIs Used
+
+MyNotes demonstrates the use of several standard browser APIs:
+
+### LocalStorage
+
+Used for persistent local application data.
+
+### File API
+
+Used to create and read JSON backup files.
+
+### Web Share API
+
+Used to provide native file sharing on supported mobile browsers.
+
+### Crypto API
+
+`crypto.randomUUID()` is used when available to generate unique note identifiers.
+
+### Service Worker API
+
+Used to support offline application behavior.
+
+### DOM API
+
+Used extensively for rendering notes, handling events, updating the interface, and managing application state.
+
+---
+
+## Security Considerations
+
+MyNotes is a client-side application and does not send notes to a remote server.
+
+User-entered content is escaped before being inserted into generated HTML to reduce the risk of HTML injection.
+
+For example, the application uses an `escapeHtml()` helper before inserting note data into the interface.
+
+Because notes are stored in browser-local storage, users should understand that clearing browser data can remove locally stored notes. The built-in JSON backup feature can be used to preserve or transfer data.
+
+---
+
+## Design Philosophy
+
+MyNotes follows a simple principle:
+
+> **Build a useful application with the platform before adding unnecessary complexity.**
+
+The project intentionally avoids a framework and backend so that the underlying browser technologies remain visible and understandable.
+
+This makes the project suitable as both a practical application and a learning example for developers interested in:
+
+* Cross-platform web applications
+* Progressive Web Apps
+* Offline-first development
+* Client-side data storage
+* Vanilla JavaScript
+* Responsive web design
+* Browser APIs
+* Static web hosting
+
+---
 
 ## Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
-If you find a bug or have an idea for improving the application, feel free to open an issue or submit a pull request.
+If you find a bug or have an idea for improving MyNotes, please open an issue or submit a pull request.
 
-When submitting changes, please try to keep the code consistent with the existing project structure and coding style.
+Before submitting a pull request, please make sure that the existing functionality continues to work on both desktop and mobile browsers.
+
+---
 
 ## License
 
-MyNotes is released under the MIT License.
+MyNotes is released under the **MIT License**.
 
-See the [LICENSE](LICENSE) file for details.
-
-## Author
-
-Developed as an example of building a practical, cross-platform web application using modern web standards.
+See the [`LICENSE`](LICENSE) file for the complete license text.
