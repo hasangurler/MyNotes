@@ -181,6 +181,9 @@ MyNotes/
 │   ├── bootstrap.bundle.min.js
 │   └── app.js
 │
+├── screenshots/
+│   ├── my-notes-screenshot.png
+│
 ├── README.md
 ├── LICENSE
 └── .gitignore
