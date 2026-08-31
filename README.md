@@ -182,7 +182,7 @@ MyNotes/
 │   └── app.js
 │
 ├── screenshots/
-│   ├── my-notes-screenshot.png
+│   └── my-notes-screenshot.png
 │
 ├── README.md
 ├── LICENSE
