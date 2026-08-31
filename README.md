@@ -8,9 +8,13 @@ MyNotes runs directly in the browser, stores notes locally, and can optionally b
 
 ## Live Demo
 
-**[Open MyNotes](https://hasangurler.github.io/MyNotes/)**
+**[🚀 Open MyNotes](https://hasangurler.github.io/MyNotes/)**
 
-The application can be used directly from the browser without installation.
+Try MyNotes directly in your browser. No installation or account is required.
+
+## Screenshot
+
+![MyNotes Screenshot](screenshots/my-notes-screenshot.png)
 
 ---
 
